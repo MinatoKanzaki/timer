@@ -5,7 +5,7 @@ body {
 
 .timer-main-box {
   width: 800px;
-  height: 350px;
+  height: 450px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
