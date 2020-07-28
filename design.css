@@ -132,3 +132,25 @@ body {
   font-size: 25px;
   width: 100px;
 }
+
+.sound-controler p {
+  text-align: center;
+}
+
+.sound-button {
+  font-size: 26px;
+  background-color: #2196F3;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sound-button:hover {
+  background-color: #64B5F6;
+  color: #34495e;
+  transition: 0.3s;
+}

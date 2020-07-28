@@ -5,7 +5,11 @@ let originalTotalTime = 0;
 let randomSecond = 0;
 let formattedTime = 0;
 let sound = document.getElementById("ringSound");
+let soundTwo = document.getElementById("ringSoundTwo");
 let showRandomTime = 0;
+let soundNumber = 0;
+let soundButtonOne = document.getElementById("soundBut1");
+let soundButtonTwo = document.getElementById("soundBut2");
 
 // use to format the time
 const timeForatter = time => {
@@ -26,7 +30,29 @@ const timeForatter = time => {
 
 // play the ring sound
 const playSound = () => {
-  sound.play();
+  if (soundNumber === 0) {
+    sound.play();
+  } else {
+    soundTwo.play();
+  }
+}
+
+//use to change sound
+const changeSound = soundName => {
+  if (soundName === 0) {
+    sound.play();
+    soundButtonOne.style.backgroundColor = "#64B5F6";
+    soundButtonOne.style.color = "#34495e";
+    soundButtonTwo.style.backgroundColor = "#2196F3";
+    soundButtonTwo.style.color = "white";
+  } else {
+    soundTwo.play();
+    soundButtonTwo.style.backgroundColor = "#64B5F6";
+    soundButtonTwo.style.color = "#34495e";
+    soundButtonOne.style.backgroundColor = "#2196F3";
+    soundButtonOne.style.color = "white";
+  }
+  soundNumber = soundName;
 }
 
 // time main programme
@@ -56,6 +82,9 @@ let ok = document.getElementById("ok");
 
 
 start.addEventListener("click", () => {
+  soundButtonOne.style.display = "none";
+  soundButtonTwo.style.display = "none";
+  document.getElementById("soundWord").style.display = "none";
   let min = parseInt(document.getElementById('min').value);
   let second = parseInt(document.getElementById('second').value);
   randomSecond = document.getElementById('random').value;

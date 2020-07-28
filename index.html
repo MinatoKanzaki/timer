@@ -11,11 +11,14 @@
     <audio id="ringSound">
       <source src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3" type="audio/mp3">
     </audio>
+    <audio id="ringSoundTwo">
+      <source src="https://freesound.org/data/previews/420/420504_8377667-lq.mp3" type="audio/mp3">
+    </audio>
     <div class="timer-main-box">
         <div class="time-box" id="01">
-          <input type="text" name="" value="01" id="min" oninput="value=value.replace(/^([7-9][0-9]|6[1-9])|([0-9][0-9]{2,})|([^0-9])$/,'')" >
+          <input type="text" name="" value="00" id="min" oninput="value=value.replace(/^([7-9][0-9]|6[1-9])|([0-9][0-9]{2,})|([^0-9])$/,'')" >
           <p>:</p>
-          <input type="text" name="" value="35" id="second" oninput="value=value.replace(/^([7-9][0-9]|6[1-9])|([0-9][0-9]{2,})|([^0-9])$/,'')" >
+          <input type="text" name="" value="01" id="second" oninput="value=value.replace(/^([7-9][0-9]|6[1-9])|([0-9][0-9]{2,})|([^0-9])$/,'')" >
         </div>
         <div class="running-time-box" id="02">
           <p id="real">00:00</p>
@@ -29,6 +32,11 @@
         </div>
         <button class="end-button" type="button" name="button" id="end">restart</button>
         <button class="ok-button" type="button" name="button" id="ok">OK</button>
+        <div class="sound-controler">
+          <p id="soundWord">choose sound</p>
+          <button type="button" name="button" class="sound-button" onclick=changeSound(0) id="soundBut1">Sound 1</button>
+          <button type="button" name="button" class="sound-button" onclick=changeSound(1) id="soundBut2">Sound 2</button>
+        </div>
     </div>
   </body>
 </html>
