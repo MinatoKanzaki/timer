@@ -92,10 +92,10 @@ if (document.cookie === "") {
 		document.getElementById('second').value = cookieTime[1];
 	}
 }
-if (cookieTime[2] === "") {
-	document.getElementById('random').value = 15;
-} else {
+if (cookieTime[2] != undefined) {
 	document.getElementById('random').value = cookieTime[2];
+} else {
+	document.getElementById('random').value = 15;
 }
 
 
