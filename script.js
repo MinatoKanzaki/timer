@@ -75,6 +75,30 @@ const startTimer = () => {
   }, 1000)
 }
 
+//set init time
+let cookieTime = document.cookie.split(':');
+if (document.cookie === "") {
+	document.getElementById('min').value = "01";
+	document.getElementById('second').value = "35";
+} else {
+	if (cookieTime[0].length === 1) {
+		document.getElementById('min').value = '0' + cookieTime[0];
+	} else {
+		document.getElementById('min').value = cookieTime[0];
+	}
+	if (cookieTime[1].length === 1) {
+		document.getElementById('second').value = '0' + cookieTime[1];
+	} else {
+		document.getElementById('second').value = cookieTime[1];
+	}
+}
+if (cookieTime[2] === "") {
+	document.getElementById('random').value = 15;
+} else {
+	document.getElementById('random').value = cookieTime[2];
+}
+
+
 // when click start to start initialization
 let start = document.getElementById('start');
 let end = document.getElementById("end");
@@ -85,9 +109,12 @@ start.addEventListener("click", () => {
   soundButtonOne.style.display = "none";
   soundButtonTwo.style.display = "none";
   document.getElementById("soundWord").style.display = "none";
-  let min = parseInt(document.getElementById('min').value);
-  let second = parseInt(document.getElementById('second').value);
-  randomSecond = document.getElementById('random').value;
+	document.cookie = document.getElementById('min').value + ":" + document.getElementById('second').value + ":" + document.getElementById('random').value + "; max-age=25920000";
+	cookieTime = document.cookie.split(':');
+	console.log(cookieTime[0]);
+  let min = parseInt(cookieTime[0]);
+  let second = parseInt(cookieTime[1]);
+  randomSecond = cookieTime[2]
   originalTotalTime = min*60 + second;
   totalTime = originalTotalTime;
   if (originalTotalTime <= 0 || min === '') {
